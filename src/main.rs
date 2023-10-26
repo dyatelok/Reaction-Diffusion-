@@ -68,7 +68,7 @@ impl CellGrid {
     fn fk(width: usize, height: usize, pos: usize) -> (f32,f32) {
         let (i,j) = (pos / width, pos % width);
         let (i_f, j_f) = (i as f32 / height as f32, j as f32 / width as f32);
-        ( i_f * 0.3, j_f * 0.08)
+        (0.01 + j_f * (0.1 - 0.01),0.045 + i_f * (0.07 - 0.045))
         // (F,K)
     }
     fn new(width: usize, height: usize) -> Self {
@@ -160,8 +160,8 @@ impl CellGrid {
     }
 }
 
-const WIDTH: usize = 1200;
-const HEIGHT: usize = 900;
+const WIDTH: usize = 1000;
+const HEIGHT: usize = 1000;
 
 const SCALER: f64 = 1.0;
 
